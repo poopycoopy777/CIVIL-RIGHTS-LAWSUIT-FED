@@ -1,0 +1,1602 @@
+Delivered-To: coop.7th@gmail.com
+Received: by 2002:a2e:93d7:0:b0:2f5:fc42:e896 with SMTP id p23csp1578548ljh;
+        Mon, 4 Nov 2024 07:06:19 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE1YhHmpTVzfyVV5QG0LwJcu4EDJ4S2gApVAVBbgPLCYw1hv0ef7FYfvD0BWgb9cRfVfwl0
+X-Received: by 2002:a05:6a20:728e:b0:1db:d9e1:40aa with SMTP id adf61e73a8af0-1dbd9e14259mr4807858637.16.1730732778811;
+        Mon, 04 Nov 2024 07:06:18 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1730732778; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=iL1EFeCeTkRBEsRLy8h34VRmyd8lat9RLHLZxIDcRPBbmn08RhZ7ksNfPtmJotqvt+
+         KQIr5HK75KoIsIXJ9OLad/jeDH9ufxDSN0KGi4REVUMYTd6+fxte4p4Xv8HUnRNNGnmH
+         lQVRkAhEQ4olRa3++HUSPSFKu3uz9WunFQUJexYPuMf45PdCKtRGm/DVPW1xHgmd7vNd
+         4ncTl9sfvRkqfvk8+Tnp/91jsID7WIv6QJvbToOlQ++dg/JKN3D0im1vt34OSPj9mj10
+         KHt1/AiueUVtxMra1ORNW70cIzGrKbJGzSEK9xkM88SuHTYpbyAV1o9drb8QgehUU50H
+         sjqQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:content-language:accept-language:in-reply-to
+         :references:message-id:date:thread-index:thread-topic:subject:to
+         :from:dkim-signature;
+        bh=uPV/alb36TPwMmL6q0Qcetw2Xs4qy3yuk1W6iTxPnag=;
+        fh=4r+MHA7KkiB+Jvam/AE9qk1ddvLh9CDnJfJV5AWefxc=;
+        b=F1336PDIvIyWLMatSIcBM5iP0IWpUd3sgq5du0rO6A8Uvgt6J9MuVw2tbph4Z0cDds
+         J48nimr3gfHe0GigrtliHpR4dPkyfplaO/0hVH2WEPSb7bgNeMFyhl2qQA8gCgfA1rWg
+         2FPfqYE4NvlXVl0m4EeBYxMuNQ4IAXJkwgiinjo34pwsZ/5a/7fSgv/SBn2gHup3D/IR
+         TyGUKAv9hc2gIM3D0f4rYnw1em9ajvhY34nucy/UJsg6F/nN5T3TDxOEKAihu2g2Bh3e
+         c+/0ZL1zFRZ40yWRna0UQ098cSrZYEZrn51JTTjCp0ASH3/lNOCiYPpoe0Gpa+WN16fu
+         PvfQ==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@pueblo.us header.s=selector2 header.b=HIRYMPHz;
+       arc=pass (i=1 spf=pass spfdomain=pueblo.us dkim=pass dkdomain=pueblo.us dmarc=pass fromdomain=pueblo.us);
+       spf=pass (google.com: domain of nwelsh@pueblo.us designates 2a01:111:f403:c10e::1 as permitted sender) smtp.mailfrom=nwelsh@pueblo.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=pueblo.us
+Return-Path: <nwelsh@pueblo.us>
+Received: from SA9PR09CU002.outbound.protection.outlook.com (mail-southcentralusazlp170100001.outbound.protection.outlook.com. [2a01:111:f403:c10e::1])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-7ee4606c598si10966124a12.240.2024.11.04.07.06.18
+        for <coop.7th@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Nov 2024 07:06:18 -0800 (PST)
+Received-SPF: pass (google.com: domain of nwelsh@pueblo.us designates 2a01:111:f403:c10e::1 as permitted sender) client-ip=2a01:111:f403:c10e::1;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@pueblo.us header.s=selector2 header.b=HIRYMPHz;
+       arc=pass (i=1 spf=pass spfdomain=pueblo.us dkim=pass dkdomain=pueblo.us dmarc=pass fromdomain=pueblo.us);
+       spf=pass (google.com: domain of nwelsh@pueblo.us designates 2a01:111:f403:c10e::1 as permitted sender) smtp.mailfrom=nwelsh@pueblo.us;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=pueblo.us
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=az9PhdIJq+2LFPXDvbgco/GbmsbVu6vCSAr7Dw+wakk8aYsc3yE54vxW+TYq1XkHazE5aO6Li9E1miArr1JrZLX/f7VGcBpy25AFczGiaKssBPc6H/bbrvYqECz0cIJnoPu9RNw4i1YAsH4BEaRpZ2Dv+Hu1Sjp3eykTCi616VOneaL9xkf3Gqty5J2YFVomJkcmmkbK2oRUCeXW0w96UZ1rubCkwWu9PoIQTN3B+fmwwix/XDYgAoMybqVA7hn3SCmIiTvkz8AkDPZLROasaZs8ecUPqVFGxEM1sLC2WH5xUzGY4ziKszkEMZG6BAHPt02jEva6mR/jbmmR2N7AEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uPV/alb36TPwMmL6q0Qcetw2Xs4qy3yuk1W6iTxPnag=;
+ b=SeJplRhRBidUbKVpGSMUcZGki438t4FPgz3CjZTGxsV+AUH3sH3cX/sj/FDGSPHcMi+PwwbNNMnVvcngV7q+8OX3XT1KNwKVUhO7qPt8qelN+HBxBZnr5xiM54LTjl2ggogKQ6tBnQuDh2GCyJ0PYkGB651ZhBSC5PMPywLGpfbKEsk0rj2bSH9CEa2OpLZIk0z8lk32Ovffy+jZkyYluGcXvqEeuD5rqxeBj7s4vazDR9EV4dBoqEJIB1ZdDnhPoAp1c3Uiud/VSXRqfaKI0M5XunEkw/jrql1mJHaPVpPw54O7rRtTDXLTPoyAYmESLDPzJypZgi9SeL/vyp7BHA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=pueblo.us; dmarc=pass action=none header.from=pueblo.us;
+ dkim=pass header.d=pueblo.us; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pueblo.us;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uPV/alb36TPwMmL6q0Qcetw2Xs4qy3yuk1W6iTxPnag=;
+ b=HIRYMPHzeAF3D/ZEIPgfoUcGNjsb9NWG5dDFHNYuhHMPrEi2HkOim90tZHihpsKXBv92nOKqQZ1Grw4xNF4XeJV03iKStscYbUamxhL+HjH0JfiPpDS3Pr/FfHjjjzVbOoGbSZ0JDZ06zDZ3JYdpoYkBxojfiKsFn8sr3xavonrkTZfkqMUDjFTAwxfz/w5XcopI2TMdcHX3jRrN54ur3e9ArMEashlxdxiffS4jDCfz3SzPaeEmHbjccLqP52r/Kya+d3KJ4nfEQ/ReAAVzIHVVAsOM4a0Wt7F902OxbSObfXQvck7fV/ymEx98f7IijdnFtkplB18Yy02X4Fu1RA==
+Received: from BY3PR09MB8546.namprd09.prod.outlook.com (2603:10b6:a03:340::18)
+ by SA1PR09MB9210.namprd09.prod.outlook.com (2603:10b6:806:285::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8093.32; Mon, 4 Nov
+ 2024 15:06:14 +0000
+Received: from BY3PR09MB8546.namprd09.prod.outlook.com
+ ([fe80::36f4:aa1f:f4ab:99fd]) by BY3PR09MB8546.namprd09.prod.outlook.com
+ ([fe80::36f4:aa1f:f4ab:99fd%3]) with mapi id 15.20.8114.031; Mon, 4 Nov 2024
+ 15:06:14 +0000
+From: Nolan Welsh <nwelsh@pueblo.us>
+To: "coop.7th@gmail.com" <coop.7th@gmail.com>
+Subject: RE: [External] Online Form Submittal: Complaint Form
+Thread-Topic: [External] Online Form Submittal: Complaint Form
+Thread-Index: AQHbLqFf8Je8OnxZgEOXD6LfMkm/VbKnODZw
+Date: Mon, 4 Nov 2024 15:06:14 +0000
+Message-ID:
+ <BY3PR09MB8546D15FCF2E0C3880265ED8D8512@BY3PR09MB8546.namprd09.prod.outlook.com>
+References: <WEBSRV-0292mf2mGCxL000206f0@mail-web029.civicplus.com>
+In-Reply-To: <WEBSRV-0292mf2mGCxL000206f0@mail-web029.civicplus.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=pueblo.us;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BY3PR09MB8546:EE_|SA1PR09MB9210:EE_
+x-ms-office365-filtering-correlation-id: 49b69fac-9dfa-4d82-16ec-08dcfce239c6
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|41320700013|366016|1800799024|8096899003|80162021|38070700018;
+x-microsoft-antispam-message-info:
+ =?us-ascii?Q?nqCMzVOn+Jv/13POn7DTEcCBSQN/MzTmMpZVQ6uZ2VvEYmBUCiI4kbsc1+Ix?=
+ =?us-ascii?Q?Ps2XMiiwUy48HRhBgRrQlcwbxOLnRAa0v+qAKPEFFmCOGabLDHAo+4ibgc7Q?=
+ =?us-ascii?Q?pksT7g6Du0mWjKcSxKT14siGb9ZZcK6rP30MAKLFXc2AWQXUd9evK3M9ReWt?=
+ =?us-ascii?Q?E16lazOEOjeKzsCYuNy8L2GJKscw96UlicJTJ9OWpKE3STeFJJf4L1UvZoRJ?=
+ =?us-ascii?Q?O4aZ8H0huchaTFwNVho/uCO3bnCgI1ce1hFjnz4AHaQyXUNIYTdp3bk/0MTH?=
+ =?us-ascii?Q?LEAa904Dioc9P++6z+kZ0C2k9kXplBs2D1rNBf9Fc5A55TEMxpT7vupzYzeR?=
+ =?us-ascii?Q?BNd20hv5gndJvHL0+8ZTRuDzR2TJoNqyvcD8TesRNzE/z181i0778MLaTlYD?=
+ =?us-ascii?Q?4wUOnhnaSjP3c6Dv3NGn4mP1dZgMrwqAmYAA+RmckaaIijgJ/JXwPyEy3lAu?=
+ =?us-ascii?Q?b2IP0LB1cgWUiEw+4qM9swDNLeEpRLC5bkwvR56GtvPmhNsIJWtf5FgyzPQz?=
+ =?us-ascii?Q?um13XPK2ZubX2g/oDR4kVfGzd6Ul2csAoV4uylg2+Nu8v3czGNLyFwZvYztL?=
+ =?us-ascii?Q?HNYahxTpvqsddA6yPNAd62BcrKGOGaED+XRf88EIKf+LQI/iscsfVvdRhuoO?=
+ =?us-ascii?Q?K09n2DTeoEzinBlbEoTxJRAq40ySy0s6xmF4gG9LUz8T7K06r5WxeTte5NjS?=
+ =?us-ascii?Q?ZN47tYEHpVDSk2+GPzZ3RxwQuWL7/kvQuDE/2NB6Llf2TS/8epv/FO/Xfv3r?=
+ =?us-ascii?Q?3nE3ZOPfJcLPgUFSvGzeaRukW3g3Zhg1YgCgdAgiD6T6c/H2ETS9HWqagvgj?=
+ =?us-ascii?Q?kveohqbFQ/L6sEtj31Ck2Y2A5Mk31PB89766zOfuYpcrfYpB3bxqmzSOLETS?=
+ =?us-ascii?Q?ZBeQzvKuarvDcgeyys+yp6k7oQBZ4x1X4E8r6Ou7rwyLksM0/MUMu3LyMCWK?=
+ =?us-ascii?Q?Dc0XfixIP9exG1weFlKvLosGU7hR1QbtppY0jajDsPe5KQJi0IwWgxICs8wv?=
+ =?us-ascii?Q?QDsKUgUzsQ4ezjzlYShamqqejE50+/H6TdA4dX9vbpJ3rx00gpCun7Sr8l2d?=
+ =?us-ascii?Q?7bTzBpKGaJ8kUQKwB3390tmQO62YUaxBuT/QVBm0cMWcgrC5Im4yTSMB0uRE?=
+ =?us-ascii?Q?nQvHbyzYcA+J0Z4Znb3b+l0+pqbh1EBf4bmYvIPRaz4FDuj8DgwoORLCr/xH?=
+ =?us-ascii?Q?v6cGNquX4Mk+A8dHW8RWxqEe62yDEqvZbCbWj/AnCPuAuugMF0KOALAgTdt4?=
+ =?us-ascii?Q?ipw+eGqa/WyAVjC20RgVXeS8oC9BUiFWkE5BiRkq+mqbaYCTw0L6fFvyNUEy?=
+ =?us-ascii?Q?I3WSddWJjuDeCfulniVZHoRm9ZWW4k4Q04+3KXRViFZboQ=3D=3D?=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY3PR09MB8546.namprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(41320700013)(366016)(1800799024)(8096899003)(80162021)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?7Kn3DLWZEG7oZlQHatHtz3WNCyfZnBgkk6tAPW6d7fkU49RERbT+8H+OGV/1?=
+ =?us-ascii?Q?0l1FIOVgM8Jfmp6SMgpT8i3234MW+XwoUr6G/e5BSxHXKmgSyXN2ZLuW3Wqw?=
+ =?us-ascii?Q?oVcp/QtCfiHUdhCRqHUuGXXbCtdZA+uP5rR5qmKtWd7inCLKy9biLsEYYd25?=
+ =?us-ascii?Q?Q0BgJtURoNdhkeAu8KxTpZUwguICC+kM9lILdV1TViO8+ftDhxIlpvVy9pdI?=
+ =?us-ascii?Q?IJcAmtSeIiLeEo0UDN4JcZInWSPVQl3x+FPF3HtLQO/LZonrZY2ZtEes9r9+?=
+ =?us-ascii?Q?0X9XC4fTT4P4XdNW0XVeVYmIuHcH35uZ9Eub+i5CVj9LaSIVT5gC2wVzNpQd?=
+ =?us-ascii?Q?guIxyvo1+ynORK5fMOhbGIPyHh6x3Z4fSRsQ6zWBOLtaY9yez3+rs6OrzzWA?=
+ =?us-ascii?Q?p7LfvKeNXoDp3U3sQ2DsOgFOAY97BqK3/4G9gH4x3GgiiDo8mjUtg/7LXLgm?=
+ =?us-ascii?Q?wIabnwLJ84OjJjv+JW4xw8oIdnwb402ilo4gb7lVDvvnshMnXQh+jS2b7xBm?=
+ =?us-ascii?Q?s+FJ/1w41dJ45l4nMF3SnNEZFfoKzQpsiRLQL7JhV7b7fI179sQ0lg+/IW0C?=
+ =?us-ascii?Q?ukURu5vWBwpSW83Au6LoYcpx9WEDYkCjZ4jQNAvfxBPir/f2p7gfnCNfM1Rb?=
+ =?us-ascii?Q?JrKBk9KFXcSg4bY84qgAhnWhlcuJyijeDDbB14uDuH2WGwg695qaBkHAt46V?=
+ =?us-ascii?Q?Jwcxe5u2ycxnnSVf2tQ9FutSJQUxWT2iKGQb8GvuBoonV/SJ4g7ax0Kl5pds?=
+ =?us-ascii?Q?YdJhJKcaP7ddSobmjbLHebbIshiq1Xg4dy8oPAjYLfLva7+SZMZu0uGW3QzW?=
+ =?us-ascii?Q?bfnaHFt1XoJ1rYLP1ozZe0JK0BaOKvUq3jl570cq+GTc8xG6BE+b7W5ZaPoG?=
+ =?us-ascii?Q?dpU3HlBy1XuvWBenUa390uvmuIxcswvKz3Alk+cTpqeiSfQQeOk8sddNmDbt?=
+ =?us-ascii?Q?3nuzURd0yYrm/PKfxK4+Movy8D99nEoRE1nSHQStv3Cn3HQfx7oe3mRCFkNL?=
+ =?us-ascii?Q?4SaGokyguy2ylO7Pk65uoz+uYrMp8mhD7A1nJsyg07vUMhpSFg7jwOAhd9iI?=
+ =?us-ascii?Q?47Rjn93fw8P2/UwS/x0WSWnMuzBZsVThbgJbntk0A64sK5YQ4/K9d39XufLl?=
+ =?us-ascii?Q?9GIB2n4Xy5ZocHnDTfIfJKgQggZoeYXsjuOa8wp2QHUbeDs3noWcFJW/LLjD?=
+ =?us-ascii?Q?tI3P7qrMF2bLoZOV1xBWnw53mScjqfUuWCQsTo9Ml2Xzgl2vs9/46ryJPSVV?=
+ =?us-ascii?Q?Ml1ro709Bpboj3/1Ru6xzkLT5IiiDiU3NthuOiQj4LBjJ19fk988lQJFXdJd?=
+ =?us-ascii?Q?hh+lAset16j2HsrIhkPzRzC+uF9sgYn1/I+baRyPD4JCDpZWz2nexGlPbCV+?=
+ =?us-ascii?Q?GCkoPYPZPiqbeTxCv0f5D3SQL+evadl9LZFCOI7Xao4U3wPIE7SJnAfl86wx?=
+ =?us-ascii?Q?nNkarM5KfQIi2GE4WGmCFEtp27MUqOmXhUqlgBQSdQrfT4AApRyLeYmbivAx?=
+ =?us-ascii?Q?iMh9F3BWCu3Hyv0H67wgM4IPR9GTxNztg+NCKX6ibcOk1vWZjmN5iQKoNXkO?=
+ =?us-ascii?Q?qCEgmMx1Ckdq4G1mL+g=3D?=
+Content-Type: multipart/alternative;
+	boundary="_000_BY3PR09MB8546D15FCF2E0C3880265ED8D8512BY3PR09MB8546namp_"
+MIME-Version: 1.0
+X-OriginatorOrg: pueblo.us
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BY3PR09MB8546.namprd09.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 49b69fac-9dfa-4d82-16ec-08dcfce239c6
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Nov 2024 15:06:14.1500
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 068b6262-5168-4e33-843f-5edbda63a1a0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR09MB9210
+
+--_000_BY3PR09MB8546D15FCF2E0C3880265ED8D8512BY3PR09MB8546namp_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Mr. Cooper,
+
+We are in receipt of your complaint. As is our policy, all complaints are i=
+nvestigated and at the conclusion of the investigation you will be mailed a=
+ letter stating the outcome of the investigation.
+
+Sergeant Nolan Welsh
+Internal Affairs Section
+Pueblo Police Department
+200 S. Main St.<gcsbody://var/mobile/Containers/Data/Application/3ECE7FC9-5=
+E6C-4116-BA2D-2D6DF535511E/Documents/BodyHTML/C6D40A86-99F7-4F71-B41E-D3704=
+201B281.html?width=3D414.000000&serverId=3DFhkWo0YHD0qbNrsRKgl-_wAB-66rTnRt=
+ZkTFfJBCisqxUrybLp0ABj5XeY81&allowZooming=3DYES>
+Pueblo, CO 81003<gcsbody://var/mobile/Containers/Data/Application/3ECE7FC9-=
+5E6C-4116-BA2D-2D6DF535511E/Documents/BodyHTML/C6D40A86-99F7-4F71-B41E-D370=
+4201B281.html?width=3D414.000000&serverId=3DFhkWo0YHD0qbNrsRKgl-_wAB-66rTnR=
+tZkTFfJBCisqxUrybLp0ABj5XeY81&allowZooming=3DYES>
+(719) 553-2446<tel:(719)%20553-2446>
+nwelsh@pueblo.us<mailto:nwelsh@pueblo.us>
+
+From: noreply@civicplus.com <noreply@civicplus.com>
+Sent: Monday, November 4, 2024 3:07 AM
+To: James Martin <jmartin@pueblo.us>; Joe Garcia <jgarcia@pueblo.us>; Steve=
+n Noeller <snoeller@pueblo.us>; Internal Affairs <ia@pueblo.us>; Zach Balla=
+s <zballas@pueblo.us>; Nolan Welsh <nwelsh@pueblo.us>; Jennifer Jackson <JJ=
+ackson@pueblo.us>; Cody Wager <cwager@pueblo.us>
+Subject: [External] Online Form Submittal: Complaint Form
+
+
+External email. Please use caution.
+If you are having problems viewing this HTML email, click to view a Text ve=
+rsion.
+
+
+Complaint Form
+This form is specifically designed for lodging complaints against officers =
+or the department. Any submissions for unrelated issues will regrettably be=
+ disregarded.
+Personal Information
+First Name:*
+Harry
+Last Name:*
+Cooper
+Email Address:*
+coop.7th@gmail.com<mailto:coop.7th@gmail.com>
+Home Phone#:
+7197177191
+Additional Phone#:
+Information about your arrest/incarceration:(if applicable)
+Date of Incident:*
+11/2/24
+Time of release:
+Location of Incident:*
+112 West 7th Street
+Date(s) of Current Incarceration:
+Were you arrested by:*
+( )
+County Sheriff Officers
+(X)
+City Police Officers
+( )
+Other
+( )
+N/A
+
+If you were arrested, other than personal information, were you questioned =
+about the incident?:
+( )
+Yes
+(X)
+No
+
+If so, were you read your Miranda Rights?
+( )
+Yes
+(X)
+No
+
+Given the right to speak to an attorney?
+( )
+Yes
+(X)
+No
+
+Given an interpreter if you needed one?
+( )
+Yes
+( )
+No
+(X)
+Did not have a need for one
+
+Do you feel you were physically mistreated while being arrested?
+( )
+Yes
+(X)
+No
+If Yes, explain:
+
+Do you feel you were verbally mistreated while being arrested?
+(X)
+Yes
+( )
+No
+If Yes, explain:
+Information About the Incident
+Witness Name & Phone#:
+John pugh, Kristen Yanes. Drea (bartender) numbers available upon request
+
+Officer(s) Involved (if you do not have name(s), a description is helpful):=
+*
+will be doing a records request after fileing this. they all refused to giv=
+e me name and badge numbers
+
+Describe what happened:*
+Harry Cooper 112 W 7th Street Pueblo, CO 81003 coop.7th@gmail.com<mailto:co=
+op.7th@gmail.com> 719-717-7191 November 3, 2024 Internal Affairs Division D=
+ear Sir/Madam, I am writing to file a formal complaint against several offi=
+cers of the Pueblo Police Department for their repeated misconduct, harassm=
+ent, and egregious violations of my constitutional and civil rights. This c=
+omplaint pertains to the most recent incident on November 2, 2024, as well =
+as prior incidents demonstrating a persistent pattern of unlawful behavior =
+by members of your department. ### I. Summary of Incidents #### A. Most Rec=
+ent Incident On November 2, 2024, at approximately 1:00 AM, while at home w=
+ith my family in our private residence above the bar owned by my father, I =
+experienced yet another distressing encounter with officers from the Pueblo=
+ Police Department. This marks the fifth such incident. Officers demanded t=
+hat I open my door, claiming they were looking for someone who had allegedl=
+y run upstairs. I informed them that no one had come upstairs and that I wa=
+s within my rights not to allow entry without a warrant. The officers respo=
+nded with hostility, making derogatory remarks, and threatening to have my =
+father's liquor license revoked as retaliation. They also refused to proper=
+ly identify themselves, violating departmental policies. Despite my lawful =
+refusal, they continued to harass and intimidate me, falsely accusing me of=
+ harboring a suspect and threatening to obtain a warrant under false preten=
+ses. Their actions caused significant distress to me and my family. Please =
+acknowledge receipt of this complaint within ten (10) business days and inf=
+orm me of the steps that will be taken. Sincerely, Harry Cooper
+How do you wish to be contacted:*
+(X)
+by Email
+( )
+by Phone
+( )
+Do Not Contact Me
+I have read and understand this complaint and find it true and correct. It =
+is my desire that this complaint be fully investigated. I further understan=
+d that if the investigation proves the allegation(s) to be false, I may be =
+liable to both criminal and civil prosecution pursuant to the City of Puebl=
+o's False Reporting Ordinance Sec 11-1-504. *
+[X]I Agree
+
+* indicates required fields.
+
+View any uploaded files by signing in<www.pueblo.us/MyAccount> and then pro=
+ceeding to the link below:
+http://www.pueblo.us/Admin/FormHistory.aspx?SID=3D11765
+
+
+The following form was submitted via your website: Complaint Form
+
+First Name:: Harry
+
+Last Name:: Cooper
+
+Email Address:: coop.7th@gmail.com<mailto:coop.7th@gmail.com>
+
+Home Phone#:: 7197177191
+
+Additional Phone#::
+
+Date of Incident:: 11/2/24
+
+Time of release::
+
+Location of Incident:: 112 West 7th Street
+
+Date(s) of Current Incarceration::
+
+Were you arrested by:: City Police Officers
+
+
+If you were arrested, other than personal information, were you questioned =
+about the incident?:: No
+
+
+If so, were you read your Miranda Rights?: No
+
+
+Given the right to speak to an attorney?: No
+
+
+Given an interpreter if you needed one?: Did not have a need for one
+
+
+Do you feel you were physically mistreated while being arrested?: No
+
+If Yes, explain::
+
+
+Do you feel you were verbally mistreated while being arrested?: Yes
+
+If Yes, explain::
+
+Witness Name & Phone#:: John pugh, Kristen Yanes. Drea (bartender) numbers =
+available upon request
+
+
+Officer(s) Involved (if you do not have name(s), a description is helpful):=
+: will be doing a records request after fileing this. they all refused to g=
+ive me name and badge numbers
+
+
+Describe what happened:: Harry Cooper
+112 W 7th Street
+Pueblo, CO 81003
+coop.7th@gmail.com<mailto:coop.7th@gmail.com>
+719-717-7191
+November 3, 2024
+Internal Affairs Division
+
+Dear Sir/Madam,
+I am writing to file a formal complaint against several officers of the Pue=
+blo Police Department for
+their repeated misconduct, harassment, and egregious violations of my const=
+itutional and civil rights.
+This complaint pertains to the most recent incident on November 2, 2024, as=
+ well as prior incidents
+demonstrating a persistent pattern of unlawful behavior by members of your =
+department.
+### I. Summary of Incidents
+#### A. Most Recent Incident
+On November 2, 2024, at approximately 1:00 AM, while at home with my family=
+ in our private
+residence above the bar owned by my father, I experienced yet another distr=
+essing encounter with
+officers from the Pueblo Police Department. This marks the fifth such incid=
+ent.
+Officers demanded that I open my door, claiming they were looking for someo=
+ne who had allegedly
+run upstairs. I informed them that no one had come upstairs and that I was =
+within my rights not to
+allow entry without a warrant. The officers responded with hostility, makin=
+g derogatory remarks, and
+threatening to have my father's liquor license revoked as retaliation. They=
+ also refused to properly
+identify themselves, violating departmental policies.
+Despite my lawful refusal, they continued to harass and intimidate me, fals=
+ely accusing me of
+harboring a suspect and threatening to obtain a warrant under false pretens=
+es. Their actions caused
+significant distress to me and my family.
+
+Please acknowledge receipt of this complaint within ten (10) business days =
+and inform me of the
+steps that will be taken.
+Sincerely,
+Harry Cooper
+
+
+How do you wish to be contacted:: by Email
+
+I have read and understand this complaint and find it true and correct. It =
+is my desire that this complaint be fully investigated. I further understan=
+d that if the investigation proves the allegation(s) to be false, I may be =
+liable to both criminal and civil prosecution pursuant to the City of Puebl=
+o's False Reporting Ordinance Sec 11-1-504. : I Agree
+
+
+
+
+Additional Information:
+Form submitted on: 11/4/2024 3:07:26 AM
+Submitted from IP Address: 73.229.123.114
+Referrer Page: No Referrer - Direct Link
+Form Address: http://www.pueblo.us/Forms.aspx?FID=3D57
+
+This e-mail transmission (including any attachments) contains information t=
+hat is confidential and may be legally privileged. It is intended for the u=
+se of the addressee only. If you received this e-mail in error, we request =
+that you contact us immediately by telephone or return e-mail, and that you=
+ delete this message from your computer. If you are not the intended recipi=
+ent, please be advised that any dissemination, distribution, or copying of =
+this e-mail is strictly prohibited. [CoP]
+
+--_000_BY3PR09MB8546D15FCF2E0C3880265ED8D8512BY3PR09MB8546namp_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Aptos;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+span.formlabelfontrequired1
+	{mso-style-name:formlabelfontrequired1;
+	font-family:"Verdana",sans-serif;
+	color:red;
+	font-weight:normal;
+	font-style:normal;}
+span.EmailStyle27
+	{mso-style-type:personal-compose;
+	font-family:"Aptos",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-US" link=3D"blue" vlink=3D"purple" style=3D"word-wrap:brea=
+k-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Mr. Cooper,<o:p></o=
+:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">We are in receipt o=
+f your complaint. As is our policy, all complaints are investigated and at =
+the conclusion of the investigation you will be mailed a letter stating the=
+ outcome of the investigation.
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<div>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:10.0pt;font-family:&quot=
+;Arial&quot;,sans-serif;color:#212121;mso-ligatures:standardcontextual">Ser=
+geant Nolan Welsh</span></b><span style=3D"font-size:11.0pt"><o:p></o:p></s=
+pan></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:10.0pt;font-family:&quot=
+;Arial&quot;,sans-serif;mso-ligatures:standardcontextual">Internal Affairs =
+Section</span></b><span style=3D"font-size:11.0pt;mso-ligatures:standardcon=
+textual"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:10.0pt;font-family:&quot=
+;Arial&quot;,sans-serif;mso-ligatures:standardcontextual">Pueblo Police Dep=
+artment<br>
+<a href=3D"gcsbody://var/mobile/Containers/Data/Application/3ECE7FC9-5E6C-4=
+116-BA2D-2D6DF535511E/Documents/BodyHTML/C6D40A86-99F7-4F71-B41E-D3704201B2=
+81.html?width=3D414.000000&amp;serverId=3DFhkWo0YHD0qbNrsRKgl-_wAB-66rTnRtZ=
+kTFfJBCisqxUrybLp0ABj5XeY81&amp;allowZooming=3DYES"><span style=3D"color:wi=
+ndowtext;text-decoration:none">200
+ S. Main St.</span></a><br>
+<a href=3D"gcsbody://var/mobile/Containers/Data/Application/3ECE7FC9-5E6C-4=
+116-BA2D-2D6DF535511E/Documents/BodyHTML/C6D40A86-99F7-4F71-B41E-D3704201B2=
+81.html?width=3D414.000000&amp;serverId=3DFhkWo0YHD0qbNrsRKgl-_wAB-66rTnRtZ=
+kTFfJBCisqxUrybLp0ABj5XeY81&amp;allowZooming=3DYES"><span style=3D"color:wi=
+ndowtext;text-decoration:none">Pueblo,
+ CO 81003</span></a><br>
+<a href=3D"tel:(719)%20553-2446"><span style=3D"color:windowtext;text-decor=
+ation:none">(719) 553-2446</span></a><br>
+<a href=3D"mailto:nwelsh@pueblo.us"><span style=3D"color:windowtext;text-de=
+coration:none">nwelsh@pueblo.us</span></a></span></b><span style=3D"font-si=
+ze:11.0pt;mso-ligatures:standardcontextual"><o:p></o:p></span></p>
+</div>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;font-family:&quot=
+;Calibri&quot;,sans-serif">From:</span></b><span style=3D"font-size:11.0pt;=
+font-family:&quot;Calibri&quot;,sans-serif"> noreply@civicplus.com &lt;nore=
+ply@civicplus.com&gt;
+<br>
+<b>Sent:</b> Monday, November 4, 2024 3:07 AM<br>
+<b>To:</b> James Martin &lt;jmartin@pueblo.us&gt;; Joe Garcia &lt;jgarcia@p=
+ueblo.us&gt;; Steven Noeller &lt;snoeller@pueblo.us&gt;; Internal Affairs &=
+lt;ia@pueblo.us&gt;; Zach Ballas &lt;zballas@pueblo.us&gt;; Nolan Welsh &lt=
+;nwelsh@pueblo.us&gt;; Jennifer Jackson &lt;JJackson@pueblo.us&gt;; Cody Wa=
+ger
+ &lt;cwager@pueblo.us&gt;<br>
+<b>Subject:</b> [External] Online Form Submittal: Complaint Form<o:p></o:p>=
+</span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p style=3D"line-height:16.0pt"><span style=3D"color:red">External email. P=
+lease use caution.
+<o:p></o:p></span></p>
+<div>
+<div id=3D"divSubmittedForm">
+<p class=3D"MsoNormal">If you are having problems viewing this HTML email, =
+click to view a
+<a href=3D"#textonly">Text version</a>.<br>
+<br>
+<br>
+<o:p></o:p></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-family:&quot;Verdana&quot;,sa=
+ns-serif">Complaint Form
+<o:p></o:p></span></b></p>
+<div align=3D"center">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"1" cellpadding=
+=3D"0" summary=3D"Display Form" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ve=
+rdana&quot;,sans-serif;color:black">This form is specifically designed for =
+lodging complaints against officers or the department. Any submissions for =
+unrelated issues will regrettably be disregarded.
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:#D2C1AB;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ve=
+rdana&quot;,sans-serif;color:black">Personal Information
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">First Name:</span><span class=3D"formlab=
+elfontrequired1"><span style=3D"font-size:10.0pt">*</span></span><span styl=
+e=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:black=
+">
+<o:p></o:p></span></p>
+</td>
+<td colspan=3D"4" valign=3D"top" style=3D"background:white;padding:0in 2.25=
+pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Harry
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Last Name:</span><span class=3D"formlabe=
+lfontrequired1"><span style=3D"font-size:10.0pt">*</span></span><span style=
+=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:black"=
+>
+<o:p></o:p></span></p>
+</td>
+<td colspan=3D"4" valign=3D"top" style=3D"background:white;padding:0in 2.25=
+pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Cooper
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Email Address:</span><span class=3D"form=
+labelfontrequired1"><span style=3D"font-size:10.0pt">*</span></span><span s=
+tyle=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:bl=
+ack">
+<o:p></o:p></span></p>
+</td>
+<td colspan=3D"4" valign=3D"top" style=3D"background:white;padding:0in 2.25=
+pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black"><a href=3D"mailto:coop.7th@gmail.com">co=
+op.7th@gmail.com</a>
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Home Phone#:
+<o:p></o:p></span></p>
+</td>
+<td colspan=3D"4" valign=3D"top" style=3D"background:white;padding:0in 2.25=
+pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">7197177191
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Additional Phone#:
+<o:p></o:p></span></p>
+</td>
+<td colspan=3D"4" valign=3D"top" style=3D"background:white;padding:0in 2.25=
+pt 0in 2.25pt">
+</td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:#D2C1AB;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ve=
+rdana&quot;,sans-serif;color:black">Information about your arrest/incarcera=
+tion:(if applicable)
+<o:p></o:p></span></p>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Date of Incident:</span><span class=3D"f=
+ormlabelfontrequired1"><span style=3D"font-size:10.0pt">*</span></span><spa=
+n style=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,sans-serif;color=
+:black">
+<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">11/2/24
+<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Time of release:
+<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+></td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Location of Incident:</span><span class=
+=3D"formlabelfontrequired1"><span style=3D"font-size:10.0pt">*</span></span=
+><span style=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,sans-serif;=
+color:black">
+<o:p></o:p></span></p>
+</td>
+<td colspan=3D"4" valign=3D"top" style=3D"background:white;padding:0in 2.25=
+pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">112 West 7th Street
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Date(s) of Current Incarceration:
+<o:p></o:p></span></p>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Were you arrested by:</span><span class=
+=3D"formlabelfontrequired1"><span style=3D"font-size:10.0pt">*</span></span=
+><span style=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,sans-serif;=
+color:black">
+<o:p></o:p></span></p>
+</td>
+<td colspan=3D"4" valign=3D"top" style=3D"background:white;padding:0in 2.25=
+pt 0in 2.25pt">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Table for layout purposes" width=3D"100%" style=3D"width:=
+100.0%">
+<tbody>
+<tr>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"1" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(&nbsp;)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">County Sheriff Officers<o:p></o:p></span=
+></p>
+</td>
+</tr>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(X)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">City Police Officers<o:p></o:p></span></=
+p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(&nbsp;)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Other<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(&nbsp;)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">N/A<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black"><br>
+If you were arrested, other than personal information, were you questioned =
+about the incident?:
+<o:p></o:p></span></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Table for layout purposes" width=3D"100%" style=3D"width:=
+100.0%">
+<tbody>
+<tr>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"1" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(&nbsp;)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Yes<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(X)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">No<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black"><br>
+If so, were you read your Miranda Rights? <o:p></o:p></span></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Table for layout purposes" width=3D"100%" style=3D"width:=
+100.0%">
+<tbody>
+<tr>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"1" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(&nbsp;)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Yes<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(X)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">No<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black"><br>
+Given the right to speak to an attorney? <o:p></o:p></span></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Table for layout purposes" width=3D"100%" style=3D"width:=
+100.0%">
+<tbody>
+<tr>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"1" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(&nbsp;)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Yes<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(X)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">No<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black"><br>
+Given an interpreter if you needed one? <o:p></o:p></span></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Table for layout purposes" width=3D"100%" style=3D"width:=
+100.0%">
+<tbody>
+<tr>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"1" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(&nbsp;)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Yes<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(&nbsp;)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">No<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(X)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Did not have a need for one<o:p></o:p></=
+span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black"><br>
+Do you feel you were physically mistreated while being arrested? <o:p></o:p=
+></span></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Table for layout purposes" width=3D"100%" style=3D"width:=
+100.0%">
+<tbody>
+<tr>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"1" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(&nbsp;)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Yes<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(X)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">No<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">If Yes, explain:
+<o:p></o:p></span></p>
+</td>
+<td colspan=3D"4" valign=3D"top" style=3D"background:white;padding:0in 2.25=
+pt 0in 2.25pt">
+</td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black"><br>
+Do you feel you were verbally mistreated while being arrested? <o:p></o:p><=
+/span></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Table for layout purposes" width=3D"100%" style=3D"width:=
+100.0%">
+<tbody>
+<tr>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"1" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(X)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Yes<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(&nbsp;)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">No<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">If Yes, explain:
+<o:p></o:p></span></p>
+</td>
+<td colspan=3D"4" valign=3D"top" style=3D"background:white;padding:0in 2.25=
+pt 0in 2.25pt">
+</td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:#D2C1AB;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ve=
+rdana&quot;,sans-serif;color:black">Information About the Incident
+<o:p></o:p></span></p>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Witness Name &amp; Phone#:
+<o:p></o:p></span></p>
+</td>
+<td colspan=3D"4" valign=3D"top" style=3D"background:white;padding:0in 2.25=
+pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">John pugh, Kristen Yanes. Drea (bartende=
+r) numbers available upon request
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black"><br>
+Officer(s) Involved (if you do not have name(s), a description is helpful):=
+</span><span class=3D"formlabelfontrequired1"><span style=3D"font-size:10.0=
+pt">*</span></span><span style=3D"font-size:8.0pt;font-family:&quot;Verdana=
+&quot;,sans-serif;color:black">
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:bl=
+ack">will be doing a records request after fileing this. they all refused t=
+o give me name and badge numbers
+<o:p></o:p></span></p>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black"><br>
+Describe what happened:</span><span class=3D"formlabelfontrequired1"><span =
+style=3D"font-size:10.0pt">*</span></span><span style=3D"font-size:8.0pt;fo=
+nt-family:&quot;Verdana&quot;,sans-serif;color:black">
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><span s=
+tyle=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,sans-serif;color:bl=
+ack">Harry Cooper 112 W 7th Street Pueblo, CO 81003
+<a href=3D"mailto:coop.7th@gmail.com">coop.7th@gmail.com</a> 719-717-7191 N=
+ovember 3, 2024 Internal Affairs Division Dear Sir/Madam, I am writing to f=
+ile a formal complaint against several officers of the Pueblo Police Depart=
+ment for their repeated misconduct,
+ harassment, and egregious violations of my constitutional and civil rights=
+. This complaint pertains to the most recent incident on November 2, 2024, =
+as well as prior incidents demonstrating a persistent pattern of unlawful b=
+ehavior by members of your department.
+ ### I. Summary of Incidents #### A. Most Recent Incident On November 2, 20=
+24, at approximately 1:00 AM, while at home with my family in our private r=
+esidence above the bar owned by my father, I experienced yet another distre=
+ssing encounter with officers from
+ the Pueblo Police Department. This marks the fifth such incident. Officers=
+ demanded that I open my door, claiming they were looking for someone who h=
+ad allegedly run upstairs. I informed them that no one had come upstairs an=
+d that I was within my rights not
+ to allow entry without a warrant. The officers responded with hostility, m=
+aking derogatory remarks, and threatening to have my father's liquor licens=
+e revoked as retaliation. They also refused to properly identify themselves=
+, violating departmental policies.
+ Despite my lawful refusal, they continued to harass and intimidate me, fal=
+sely accusing me of harboring a suspect and threatening to obtain a warrant=
+ under false pretenses. Their actions caused significant distress to me and=
+ my family. Please acknowledge receipt
+ of this complaint within ten (10) business days and inform me of the steps=
+ that will be taken. Sincerely, Harry Cooper
+<o:p></o:p></span></p>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">How do you wish to be contacted:</span><=
+span class=3D"formlabelfontrequired1"><span style=3D"font-size:10.0pt">*</s=
+pan></span><span style=3D"font-size:8.0pt;font-family:&quot;Verdana&quot;,s=
+ans-serif;color:black">
+<o:p></o:p></span></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Table for layout purposes" width=3D"100%" style=3D"width:=
+100.0%">
+<tbody>
+<tr>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"1" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(X)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">by Email<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(&nbsp;)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">by Phone<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"50%" valign=3D"top" style=3D"width:50.0%;padding:0in 0in 0in 0=
+in">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" summary=3D"Form Fields" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td width=3D"3%" valign=3D"top" style=3D"width:3.0%;background:white;paddin=
+g:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">(&nbsp;)<o:p></o:p></span></p>
+</td>
+<td valign=3D"top" style=3D"background:white;padding:0in 2.25pt 0in 2.25pt"=
+>
+<p class=3D"MsoNormal"><span style=3D"font-size:8.0pt;font-family:&quot;Ver=
+dana&quot;,sans-serif;color:black">Do Not Contact Me<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;backg=
+round:white;padding:0in 2.25pt 0in 2.25pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ve=
+rdana&quot;,sans-serif;color:black">I have read and understand this complai=
+nt and find it true and correct. It is my desire that this complaint be ful=
+ly investigated. I further understand that if
+ the investigation proves the allegation(s) to be false, I may be liable to=
+ both criminal and civil prosecution pursuant to the City of Pueblo's False=
+ Reporting Ordinance Sec 11-1-504.
+</span><span class=3D"formlabelfontrequired1"><span style=3D"font-size:10.0=
+pt">*</span></span><span style=3D"font-size:10.0pt;font-family:&quot;Verdan=
+a&quot;,sans-serif;color:black">
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ve=
+rdana&quot;,sans-serif;color:black">[X]I Agree
+<o:p></o:p></span></p>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td width=3D"100%" colspan=3D"4" valign=3D"top" style=3D"width:100.0%;paddi=
+ng:0in 2.25pt 0in 2.25pt">
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td colspan=3D"4" valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<p class=3D"MsoNormal">&nbsp;<o:p></o:p></p>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr>
+<td colspan=3D"4" valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<p class=3D"MsoNormal"><span class=3D"formlabelfontrequired1"><span style=
+=3D"font-size:10.0pt">* indicates required fields.</span></span>
+<o:p></o:p></p>
+</td>
+<td style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+<tr height=3D"0">
+<td width=3D"343" style=3D"border:none"></td>
+<td width=3D"117" style=3D"border:none"></td>
+<td width=3D"221" style=3D"border:none"></td>
+<td width=3D"25" style=3D"border:none"></td>
+<td width=3D"2" style=3D"border:none"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class=3D"MsoNormal"><br>
+View any uploaded files by <a href=3D"www.pueblo.us/MyAccount">signing in</=
+a> and then proceeding to the link below:
+<br>
+<a href=3D"http://www.pueblo.us/Admin/FormHistory.aspx?SID=3D11765">http://=
+www.pueblo.us/Admin/FormHistory.aspx?SID=3D11765</a>
+<br>
+<br>
+<br>
+The following form was submitted via your website: Complaint Form<br>
+<br>
+<a name=3D"textonly"></a>First Name:: Harry<br>
+<br>
+Last Name:: Cooper<br>
+<br>
+Email Address:: <a href=3D"mailto:coop.7th@gmail.com">coop.7th@gmail.com</a=
+><br>
+<br>
+Home Phone#:: 7197177191<br>
+<br>
+Additional Phone#:: <br>
+<br>
+Date of Incident:: 11/2/24<br>
+<br>
+Time of release:: <br>
+<br>
+Location of Incident:: 112 West 7th Street<br>
+<br>
+Date(s) of Current Incarceration:: <br>
+<br>
+Were you arrested by:: City Police Officers<br>
+<br>
+<br>
+If you were arrested, other than personal information, were you questioned =
+about the incident?:: No<br>
+<br>
+<br>
+If so, were you read your Miranda Rights?: No<br>
+<br>
+<br>
+Given the right to speak to an attorney?: No<br>
+<br>
+<br>
+Given an interpreter if you needed one?: Did not have a need for one<br>
+<br>
+<br>
+Do you feel you were physically mistreated while being arrested?: No<br>
+<br>
+If Yes, explain:: <br>
+<br>
+<br>
+Do you feel you were verbally mistreated while being arrested?: Yes<br>
+<br>
+If Yes, explain:: <br>
+<br>
+Witness Name &amp; Phone#:: John pugh, Kristen Yanes. Drea (bartender) numb=
+ers available upon request<br>
+<br>
+<br>
+Officer(s) Involved (if you do not have name(s), a description is helpful):=
+: will be doing a records request after fileing this. they all refused to g=
+ive me name and badge numbers<br>
+<br>
+<br>
+Describe what happened:: Harry Cooper<br>
+112 W 7th Street<br>
+Pueblo, CO 81003<br>
+<a href=3D"mailto:coop.7th@gmail.com">coop.7th@gmail.com</a><br>
+719-717-7191<br>
+November 3, 2024<br>
+Internal Affairs Division<br>
+<br>
+Dear Sir/Madam,<br>
+I am writing to file a formal complaint against several officers of the Pue=
+blo Police Department for<br>
+their repeated misconduct, harassment, and egregious violations of my const=
+itutional and civil rights.<br>
+This complaint pertains to the most recent incident on November 2, 2024, as=
+ well as prior incidents<br>
+demonstrating a persistent pattern of unlawful behavior by members of your =
+department.<br>
+### I. Summary of Incidents<br>
+#### A. Most Recent Incident<br>
+On November 2, 2024, at approximately 1:00 AM, while at home with my family=
+ in our private<br>
+residence above the bar owned by my father, I experienced yet another distr=
+essing encounter with<br>
+officers from the Pueblo Police Department. This marks the fifth such incid=
+ent.<br>
+Officers demanded that I open my door, claiming they were looking for someo=
+ne who had allegedly<br>
+run upstairs. I informed them that no one had come upstairs and that I was =
+within my rights not to<br>
+allow entry without a warrant. The officers responded with hostility, makin=
+g derogatory remarks, and<br>
+threatening to have my father's liquor license revoked as retaliation. They=
+ also refused to properly<br>
+identify themselves, violating departmental policies.<br>
+Despite my lawful refusal, they continued to harass and intimidate me, fals=
+ely accusing me of<br>
+harboring a suspect and threatening to obtain a warrant under false pretens=
+es. Their actions caused<br>
+significant distress to me and my family.<br>
+<br>
+Please acknowledge receipt of this complaint within ten (10) business days =
+and inform me of the<br>
+steps that will be taken.<br>
+Sincerely,<br>
+Harry Cooper<br>
+<br>
+<br>
+How do you wish to be contacted:: by Email<br>
+<br>
+I have read and understand this complaint and find it true and correct. It =
+is my desire that this complaint be fully investigated. I further understan=
+d that if the investigation proves the allegation(s) to be false, I may be =
+liable to both criminal and civil
+ prosecution pursuant to the City of Pueblo's False Reporting Ordinance Sec=
+ 11-1-504. : I Agree<br>
+<br>
+<br>
+<br>
+<br>
+<span style=3D"font-family:&quot;Arial&quot;,sans-serif;color:black">Additi=
+onal Information:<br>
+Form submitted on: 11/4/2024 3:07:26 AM<br>
+Submitted from IP Address: 73.229.123.114<br>
+Referrer Page: No Referrer - Direct Link<br>
+Form Address: <a href=3D"http://www.pueblo.us/Forms.aspx?FID=3D57">http://w=
+ww.pueblo.us/Forms.aspx?FID=3D57</a>
+</span><o:p></o:p></p>
+</div>
+</div>
+</div>
+<p style=3D"font-size:8pt; line-height:10pt; font-family: 'Cambria','times =
+roman',serif;">
+This e-mail transmission (including any attachments) contains information t=
+hat is confidential and may be legally privileged. It is intended for the u=
+se of the addressee only. If you received this e-mail in error, we request =
+that you contact us immediately
+ by telephone or return e-mail, and that you delete this message from your =
+computer. If you are not the intended recipient, please be advised that any=
+ dissemination, distribution, or copying of this e-mail is strictly prohibi=
+ted. [CoP]</p>
+</body>
+</html>
+
+--_000_BY3PR09MB8546D15FCF2E0C3880265ED8D8512BY3PR09MB8546namp_--

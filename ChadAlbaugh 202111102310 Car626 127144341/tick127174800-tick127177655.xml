@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<recording-event reid="00:1d:96:00:ef:16-127144341" start-tick="127174800" stop-tick="127177655" state="RecordingComplete" tagsComplete="true" tagsLocked="false" forcedRoutine="false" actualStreamState="CurrentlyHaveBothStreams" desiredStreamState="Critical" includeBackground="false" NonplayableUSBVideo="1" start-time="2021-11-11T06:10:33Z" stop-time="2021-11-11T06:34:21Z">
+  <info>
+    <officer id="228">Chad Albaugh</officer>
+    <dept>3ee5fd06-d4e5-4e79-84d4-aaad513c1a52</dept>
+    <vehicle>Car 626</vehicle>
+    <protected>0</protected>
+  </info>
+  <eventGroup>
+    <device dvr="4re" vehicle="Car 626" eventCreated="true">
+      <event reid="00:1d:96:00:ef:16-127144341" />
+    </device>
+  </eventGroup>
+  <etl ContentsRevision="1">
+    <eti fld="EventCategory">Criminal / Felony</eti>
+    <eti fld="CaseNumber">21021852</eti>
+  </etl>
+  <video hashType="md5">
+    <metadata name="tick127174800-tick127177655.mtd" hashCode="6c0de29632db444406712f675380abe2" />
+    <streams>
+      <stream num="0" start-tick="127174800" stop-tick="127177655" audio-left="Wireless1" audio-right="Cabin">
+        <file name="tick127174800-tick127177655-video0.mp4" hashCode="2f51b4e5cfc3532613b01ff070c1bd1d" />
+        <file name="tick127174800-tick127177655-video0.vtt" hashCode="fdc78cc2ee7fd9d08f0c1a17675503a8" />
+        <file name="tick127174800-tick127177655-video0.json" hashCode="a38424861aac8b90f839c84dd05182f0" />
+      </stream>
+      <stream num="3" start-tick="127174800" stop-tick="127177655" audio-left="Wireless1" audio-right="Cabin">
+        <file name="tick127174800-tick127177655-video3.mp4" hashCode="900a90961b73377e5f6139c596f35eeb" />
+        <file name="tick127174800-tick127177655-video3.vtt" hashCode="f632b2e4342c6c5aef8d9b228de1d24c" />
+        <file name="tick127174800-tick127177655-video3.json" hashCode="39ee2807e79242b8df819d93f7f550fc" />
+      </stream>
+    </streams>
+  </video>
+</recording-event>
