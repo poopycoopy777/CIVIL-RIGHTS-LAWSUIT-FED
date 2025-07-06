@@ -1,0 +1,6 @@
+pdfplumber
+transformers
+datasets
+langchain
+faiss-cpu
+requests
